@@ -1,0 +1,169 @@
+@import "variables";
+@import "mixins";
+
+body {
+    font-family: $secondary-font;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    &__logo {
+        font-family: $primary-font;
+        color: black;
+    }
+}
+
+.location {
+    @include flex-center();
+    background-color: 	#dcdcdc;
+    &__icon {
+        margin-right: 15px;
+    }
+    & p {
+        font-weight: bold;
+    }
+}
+
+.presentation {
+    @include flex-center();
+    flex-direction: column;
+    background-color: #f3f3f3;
+    padding: 40px 20px;
+    & h2, p {
+        text-align: center;
+        margin: 10px 0;
+    }
+    & button {
+        font-size: 1rem;
+        color: white;
+        border: none;
+        text-decoration: none;
+        border-radius: 200px;
+        margin-top: 10px;
+        opacity: 1;
+        padding: 20px;
+        background: linear-gradient(180deg, $secondary-color 0%, $primary-color 100%);
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
+        cursor: pointer;
+        &:hover {
+            opacity: 0.8;
+            transition: 0.3s;
+            box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 60%);
+        }
+    }
+}
+
+.functioning {
+    padding: 40px 10px;
+    .functioning__steps {
+        display: flex;
+        align-items: center;
+        background-color: #F2F2F2;
+        margin: 0 0 20px 10px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
+        cursor: pointer;
+        & p {
+            margin: 20px 0;
+        }
+        &:hover {
+            background: white;
+            opacity: 0.8;
+            transition: 0.3s;
+            box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 60%);
+        }
+    }
+    .functioning__number {
+        position: absolute;
+        color: white;
+        padding: 3px 8px 3px 8px;
+        border-radius: 500px;
+        background-color: $primary-color;
+        transform: translateX(-50%);
+    }
+    .functioning__icon {
+        margin: 0 20px;
+    }
+}
+
+.restaurants {
+    padding: 40px 20px;
+    background-color: #F2F2F2;
+    & a {
+        color: black;
+    }
+    .menu__card {
+        height: 250px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 16%);
+        &:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
+            box-shadow: 0px 0px 10px 2px rgb(147 86 220 / 60%);
+        }
+    }
+    .menu__image {
+        height: 70%;
+        border-radius: 20px 20px 0 0;
+        position: relative;
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+    }
+    .menu__new {
+        @include flex-center();
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: $third-color;
+        padding: 10px;
+    }
+    .menu__block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        height: 30%;
+    }
+    .menu__info {
+        padding: 15px;
+        & h3, p {
+            margin: 0;
+        }
+    }
+    .menu__heart {
+        @include flex-center();
+        width: 30px;
+        margin-right: 10px;
+    }
+}
+
+.footer {
+    color: white;
+    padding: 30px 20px;
+    background-color: #353535;
+    .footer__logo {
+        font-size: 1.5rem;
+        font-family: $primary-font;
+        margin-bottom: 20px;
+    }
+    .footer__block {
+        display: flex;
+        align-items: center;
+        & p {
+            margin: 5px;
+            font-size: 1.2rem;
+        }
+    }
+}
