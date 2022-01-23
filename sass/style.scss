@@ -4,6 +4,7 @@
 body {
     font-family: $secondary-font;
     margin: 0;
+    height: 100vh;
 }
 
 a {
@@ -13,15 +14,18 @@ a {
 
 .header {
     text-align: center;
+    padding: 15px 0;
+    box-shadow: 0px 5px 6px 0px rgb(0 0 0 / 20%);
     &__logo {
         font-family: $primary-font;
+        font-size: 2rem;
         color: black;
     }
 }
 
 .location {
     @include flex-center();
-    background-color: 	#dcdcdc;
+    background-color: 	#f3f3f3;
     &__icon {
         margin-right: 15px;
     }
@@ -33,7 +37,7 @@ a {
 .presentation {
     @include flex-center();
     flex-direction: column;
-    background-color: #f3f3f3;
+    background-color: #fafafa;
     padding: 40px 20px;
     & h2, p {
         text-align: center;
@@ -51,9 +55,9 @@ a {
         background: linear-gradient(180deg, $secondary-color 0%, $primary-color 100%);
         box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
         cursor: pointer;
+        transition: all 800ms ease-in-out;
         &:hover {
             opacity: 0.8;
-            transition: 0.3s;
             box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 60%);
         }
     }
@@ -64,19 +68,19 @@ a {
     .functioning__steps {
         display: flex;
         align-items: center;
-        background-color: #F2F2F2;
+        background-color: #f3f3f3;
         margin: 0 0 20px 10px;
         border-radius: 20px;
         box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
         cursor: pointer;
+        transition: all 800ms ease-in-out;
         & p {
             margin: 20px 0;
         }
         &:hover {
-            background: white;
             opacity: 0.8;
-            transition: 0.3s;
             box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 60%);
+            background: white;
         }
     }
     .functioning__number {
@@ -94,7 +98,7 @@ a {
 
 .restaurants {
     padding: 40px 20px;
-    background-color: #F2F2F2;
+    background-color: #f3f3f3;
     & a {
         color: black;
     }
@@ -104,9 +108,9 @@ a {
         margin-bottom: 20px;
         overflow: hidden;
         box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 16%);
+        transition: all 800ms ease-in-out;
         &:hover {
             transform: scale(1.1);
-            transition: 0.5s;
             box-shadow: 0px 0px 10px 2px rgb(147 86 220 / 60%);
         }
     }
@@ -130,9 +134,7 @@ a {
         padding: 10px;
     }
     .menu__block {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex-between();
         background-color: white;
         height: 30%;
     }
@@ -162,8 +164,225 @@ a {
         display: flex;
         align-items: center;
         & p {
-            margin: 5px;
+            margin: 5px 0;
             font-size: 1.2rem;
         }
+        & i {
+            margin-right: 10px;
+        }
+    }
+}
+
+// my first menu
+
+.header-menu {
+    @include flex-center();
+    padding: 15px 0;
+    position: relative;
+    &__logo {
+        font-family: $primary-font;
+        font-size: 2rem;
+        color: black;
+    }
+    & i {
+        color: black;
+        font-size: 1.2rem;
+        position: absolute;
+        left: 20px;
+        top: 32px;
+    }
+}
+
+.banner {
+    width: 100%;
+    height: 300px;
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.menus {
+    border-radius: 50px 50px 0 0;
+    padding: 30px 20px;
+    background-color: #F6F6F6;
+    position: relative;
+    top: -60px;
+    .menus__title {
+        @include flex-between();
+    }
+    .menu__heart {
+        margin-right: 20px;
+    }
+    & h2 {
+        font-family: $primary-font;
+    }
+    & h3 {
+        text-transform: uppercase;
+        position: relative;
+        padding: 10px 0;
+        color: grey;
+    }
+    & h3::after {
+        content: "";
+        height: 4px;
+        width: 50px;
+        background-color: $third-color;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .menus__block {
+        border-radius: 20px;
+        padding: 10px;
+        background-color: white;
+        margin-bottom: 20px;
+        box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 10%);
+        animation: gradual-appearance 1s both;
+        position: relative;
+        & p {
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        & > P {
+            font-size: 1.1rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        .menus_validation {
+            @include flex-center();
+            display: none;
+            position: absolute;
+            background: #99E2D0;
+            border-radius: 0 15px 15px 0;
+            right: 0px;
+            top: 0;
+            padding: 0 13px;
+            height: 100%;
+            & i {
+                font-size: 30px;
+                color: white;
+                transform: rotate(180deg);
+                animation: dish-selection 0.5s both;
+            }
+        }
+        &:hover .menus_validation {
+            @include flex-center;
+            animation: slide-left 0.5s ease;
+            transform-origin: right;
+        }
+        &:hover .menus__price {
+            padding-right: 70px;
+            transition: 0.5s ease ;
+        }
+        &--time-1 {
+            animation-delay: 0.1s;
+        }
+        &--time-2 {
+            animation-delay: 0.2s;
+        } 
+        &--time-3 {
+            animation-delay: 0.3s;
+        }  
+        &--time-4 {
+            animation-delay: 0.4s;
+        }
+        &--time-5 {
+            animation-delay: 0.5s;
+        }  
+        &--time-6 {
+            animation-delay: 0.6s;
+        } 
+        &--time-7 {
+            animation-delay: 0.7s;
+        }
+        &--time-8 {
+            animation-delay: 0.8s;
+        }
+        &--time-9 {
+            animation-delay: 0.9s;
+        }
+    }
+    .menus__price {
+        @include flex-between();
+        & span {
+            margin: 0 10px 0 10px;
+            font-weight: 900;
+        }
+    }
+    .menus__button {
+        @include flex-center();
+        margin: 50px 0 20px 0;
+        & button {
+            font-size: 1rem;
+            color: white;
+            border: none;
+            text-decoration: none;
+            border-radius: 200px;
+            opacity: 1;
+            padding: 15px 40px;
+            background: linear-gradient(180deg, $secondary-color 0%, $primary-color 100%);
+            box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
+            cursor: pointer;
+            &:hover {
+                opacity: 0.8;
+                transition: 0.3s;
+                box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 60%);
+            }
+        }
+    }
+}
+
+.footer__menu {
+    color: white;
+    padding: 30px 20px;
+    position: relative;
+    top: -60px;
+    background-color: #353535;
+    .footer__logo {
+        font-size: 1.5rem;
+        font-family: $primary-font;
+        margin-bottom: 20px;
+    }
+    .footer__block {
+        display: flex;
+        align-items: center;
+        & p {
+            margin: 5px 0;
+            font-size: 1.2rem;
+        }
+        & i {
+            margin-right: 10px;
+        }
+    }
+}
+
+@keyframes gradual-appearance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes dish-selection {
+    0% {
+        transform: rotate(0);
+}
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(-50px);
     }
 }
