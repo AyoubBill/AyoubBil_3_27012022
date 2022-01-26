@@ -1,5 +1,13 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////// IMPORTS //////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 @import "variables";
 @import "mixins";
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////// GENERAL RULES ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 body {
     font-family: $secondary-font;
@@ -11,6 +19,10 @@ a {
     text-decoration: none;
     color: white;
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////// THE MAIN PAGE ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 .header {
     text-align: center;
@@ -55,7 +67,7 @@ a {
         background: linear-gradient(180deg, $secondary-color 0%, $primary-color 100%);
         box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
         cursor: pointer;
-        transition: all 800ms ease-in-out;
+        transition: all 600ms ease;
         &:hover {
             opacity: 0.8;
             box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 60%);
@@ -73,7 +85,7 @@ a {
         border-radius: 20px;
         box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 30%);
         cursor: pointer;
-        transition: all 800ms ease-in-out;
+        transition: all 600ms ease;
         & p {
             margin: 20px 0;
         }
@@ -81,6 +93,9 @@ a {
             opacity: 0.8;
             box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 60%);
             background: white;
+        }
+        @media screen and (min-width: 821px) {
+            width: 30%;
         }
     }
     .functioning__number {
@@ -94,6 +109,14 @@ a {
     .functioning__icon {
         margin: 0 20px;
     }
+    .functioning__block {
+        @media screen and (min-width: 821px) {
+            @include flex-between();
+        }
+    }
+    @media screen and (min-width: 821px) {
+        margin: 0 100px;
+    }
 }
 
 .restaurants {
@@ -102,16 +125,26 @@ a {
     & a {
         color: black;
     }
+    .menu__cards {
+        @media screen and (min-width: 821px) {
+            @include flex-center();
+            flex-wrap: wrap;
+        }
+    }
     .menu__card {
         height: 250px;
         border-radius: 20px;
         margin-bottom: 20px;
         overflow: hidden;
         box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 16%);
-        transition: all 800ms ease-in-out;
+        transition: all 600ms ease;
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.02);
             box-shadow: 0px 0px 10px 2px rgb(147 86 220 / 60%);
+        }
+        @media screen and (min-width: 821px) {
+            width: 550px;
+            margin: 20px;
         }
     }
     .menu__image {
@@ -132,6 +165,7 @@ a {
         right: 20px;
         background-color: $third-color;
         padding: 10px;
+        color: #1b6150;
     }
     .menu__block {
         @include flex-between();
@@ -148,6 +182,25 @@ a {
         @include flex-center();
         width: 30px;
         margin-right: 10px;
+        position: relative;
+        cursor: pointer;
+        stroke: black;
+        fill: transparent;
+        stroke-width: 30;
+    }
+    .heart__filled {
+        fill: url(#myGradient);
+        stroke: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .heart__empty:hover {
+        animation: heart-filled 2s ease-in-out both;
+    }
+    @media screen and (min-width: 821px) {
+        margin: 0 100px;
     }
 }
 
@@ -163,17 +216,33 @@ a {
     .footer__block {
         display: flex;
         align-items: center;
+        cursor: pointer;
         & p {
             margin: 5px 0;
             font-size: 1.2rem;
+            &:hover {
+                text-decoration: underline;
+            }
         }
         & i {
             margin-right: 10px;
         }
     }
+    .footer__container {
+        @media screen and (min-width: 821px) {
+            margin: 0 100px;
+        }
+    }
+    .footer__blocks {
+        @media screen and (min-width: 821px) {
+            @include flex-between();
+        }
+    }
 }
 
-// my first menu
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////// THE MENUS PAGES //////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 .header-menu {
     @include flex-center();
@@ -212,8 +281,32 @@ a {
     .menus__title {
         @include flex-between();
     }
+    .menu {
+        @media screen and (min-width: 821px) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
     .menu__heart {
-        margin-right: 20px;
+        @include flex-center();
+        width: 30px;
+        margin-right: 10px;
+        position: relative;
+        cursor: pointer;
+        stroke: black;
+        fill: transparent;
+        stroke-width: 30;
+    }
+    .heart__filled {
+        fill: url(#myGradient);
+        stroke: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .heart__empty:hover {
+        animation: heart-filled 2s ease-in-out both;
     }
     & h2 {
         font-family: $primary-font;
@@ -239,8 +332,9 @@ a {
         background-color: white;
         margin-bottom: 20px;
         box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 10%);
-        animation: gradual-appearance 1s both;
+        animation: gradual-appearance 2s both;
         position: relative;
+        cursor: pointer;
         & p {
             margin: 0;
             white-space: nowrap;
@@ -271,7 +365,7 @@ a {
         }
         &:hover .menus_validation {
             @include flex-center;
-            animation: slide-left 0.5s ease;
+            animation: slide-left 0.5s;
             transform-origin: right;
         }
         &:hover .menus__price {
@@ -305,6 +399,10 @@ a {
         &--time-9 {
             animation-delay: 0.9s;
         }
+        @media screen and (min-width: 821px) {
+            width:350px;
+            margin-left: 20px;
+        }
     }
     .menus__price {
         @include flex-between();
@@ -334,6 +432,9 @@ a {
             }
         }
     }
+    @media screen and (min-width: 821px) {
+        margin: 0 100px;
+    }
 }
 
 .footer__menu {
@@ -350,21 +451,79 @@ a {
     .footer__block {
         display: flex;
         align-items: center;
+        cursor: pointer;
         & p {
             margin: 5px 0;
             font-size: 1.2rem;
+            &:hover {
+                text-decoration: underline;
+            }
         }
         & i {
             margin-right: 10px;
         }
     }
+    .footer__container {
+        @media screen and (min-width: 821px) {
+            margin: 0 100px;
+        }
+    }
+    .footer__blocks {
+        @media screen and (min-width: 821px) {
+            @include flex-between();
+        }
+    }
 }
+
+.loading {
+    @include flex-center();
+    height: 100%;
+    margin: auto;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    z-index: 2;
+    animation: loading 2s linear;
+    .loading__border {
+        @include flex-center();
+        width: 100px;
+        height: 100px;
+        border: 10px solid transparent;
+        border-top: 10px solid $primary-color;
+        border-bottom: 10px solid $secondary-color;
+        border-radius: 50%;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        visibility: hidden;
+        z-index: 1;
+        animation: loading-border 2s linear;
+    }
+    .loading__center {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border-color: $third-color;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////// KEYFRAMES ////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @keyframes gradual-appearance {
     0% {
+        transform: translateY(20px);
         opacity: 0;
     }
     100% {
+        transform: translateY(0px);
         opacity: 1;
     }
 }
@@ -383,6 +542,55 @@ a {
         transform: scaleX(0);
     }
     100% {
-        transform: scaleX(-50px);
+        transform: scaleX(1);
+    }
+}
+
+@keyframes heart-filled {
+    0% {
+        fill: transparent;
+        transform: scale(1);
+    }
+    30% {
+        fill: url(#myGradient);
+        transform: scale(1.1);
+        stroke-width: 20;
+    }
+    60% {
+        transform: scale(1);
+        stroke-width: 10;
+    }
+    100% {
+        fill: url(.myGradient);
+        stroke-width: 0;
+    }
+}
+
+@keyframes loading {
+    0% {
+        visibility: visible;
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes loading-border {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0;
+        visibility: hidden;
     }
 }

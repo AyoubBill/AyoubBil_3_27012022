@@ -57,7 +57,7 @@ a {
   background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  transition: all 800ms ease-in-out;
+  transition: all 600ms ease;
 }
 .presentation button:hover {
   opacity: 0.8;
@@ -75,7 +75,7 @@ a {
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  transition: all 800ms ease-in-out;
+  transition: all 600ms ease;
 }
 .functioning .functioning__steps p {
   margin: 20px 0;
@@ -84,6 +84,11 @@ a {
   opacity: 0.8;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
   background: white;
+}
+@media screen and (min-width: 821px) {
+  .functioning .functioning__steps {
+    width: 30%;
+  }
 }
 .functioning .functioning__number {
   position: absolute;
@@ -96,6 +101,18 @@ a {
 .functioning .functioning__icon {
   margin: 0 20px;
 }
+@media screen and (min-width: 821px) {
+  .functioning .functioning__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 821px) {
+  .functioning {
+    margin: 0 100px;
+  }
+}
 
 .restaurants {
   padding: 40px 20px;
@@ -104,17 +121,31 @@ a {
 .restaurants a {
   color: black;
 }
+@media screen and (min-width: 821px) {
+  .restaurants .menu__cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
 .restaurants .menu__card {
   height: 250px;
   border-radius: 20px;
   margin-bottom: 20px;
   overflow: hidden;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
-  transition: all 800ms ease-in-out;
+  transition: all 600ms ease;
 }
 .restaurants .menu__card:hover {
-  transform: scale(1.1);
+  transform: scale(1.02);
   box-shadow: 0px 0px 10px 2px rgba(147, 86, 220, 0.6);
+}
+@media screen and (min-width: 821px) {
+  .restaurants .menu__card {
+    width: 550px;
+    margin: 20px;
+  }
 }
 .restaurants .menu__image {
   height: 70%;
@@ -136,6 +167,7 @@ a {
   right: 20px;
   background-color: #99E2D0;
   padding: 10px;
+  color: #1b6150;
 }
 .restaurants .menu__block {
   display: flex;
@@ -156,6 +188,27 @@ a {
   align-items: center;
   width: 30px;
   margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+  stroke: black;
+  fill: transparent;
+  stroke-width: 30;
+}
+.restaurants .heart__filled {
+  fill: url(#myGradient);
+  stroke: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.restaurants .heart__empty:hover {
+  animation: heart-filled 2s ease-in-out both;
+}
+@media screen and (min-width: 821px) {
+  .restaurants {
+    margin: 0 100px;
+  }
 }
 
 .footer {
@@ -171,13 +224,29 @@ a {
 .footer .footer__block {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .footer .footer__block p {
   margin: 5px 0;
   font-size: 1.2rem;
 }
+.footer .footer__block p:hover {
+  text-decoration: underline;
+}
 .footer .footer__block i {
   margin-right: 10px;
+}
+@media screen and (min-width: 821px) {
+  .footer .footer__container {
+    margin: 0 100px;
+  }
+}
+@media screen and (min-width: 821px) {
+  .footer .footer__blocks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .header-menu {
@@ -222,8 +291,34 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (min-width: 821px) {
+  .menus .menu {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 .menus .menu__heart {
-  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+  stroke: black;
+  fill: transparent;
+  stroke-width: 30;
+}
+.menus .heart__filled {
+  fill: url(#myGradient);
+  stroke: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.menus .heart__empty:hover {
+  animation: heart-filled 2s ease-in-out both;
 }
 .menus h2 {
   font-family: "Shrikhand", sans-serif;
@@ -249,8 +344,9 @@ a {
   background-color: white;
   margin-bottom: 20px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
-  animation: gradual-appearance 1s both;
+  animation: gradual-appearance 2s both;
   position: relative;
+  cursor: pointer;
 }
 .menus .menus__block p {
   margin: 0;
@@ -286,7 +382,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: slide-left 0.5s ease;
+  animation: slide-left 0.5s;
   transform-origin: right;
 }
 .menus .menus__block:hover .menus__price {
@@ -320,6 +416,12 @@ a {
 .menus .menus__block--time-9 {
   animation-delay: 0.9s;
 }
+@media screen and (min-width: 821px) {
+  .menus .menus__block {
+    width: 350px;
+    margin-left: 20px;
+  }
+}
 .menus .menus__price {
   display: flex;
   justify-content: space-between;
@@ -352,6 +454,11 @@ a {
   transition: 0.3s;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
 }
+@media screen and (min-width: 821px) {
+  .menus {
+    margin: 0 100px;
+  }
+}
 
 .footer__menu {
   color: white;
@@ -368,20 +475,80 @@ a {
 .footer__menu .footer__block {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .footer__menu .footer__block p {
   margin: 5px 0;
   font-size: 1.2rem;
 }
+.footer__menu .footer__block p:hover {
+  text-decoration: underline;
+}
 .footer__menu .footer__block i {
   margin-right: 10px;
+}
+@media screen and (min-width: 821px) {
+  .footer__menu .footer__container {
+    margin: 0 100px;
+  }
+}
+@media screen and (min-width: 821px) {
+  .footer__menu .footer__blocks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: auto;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+  z-index: 2;
+  animation: loading 2s linear;
+}
+.loading .loading__border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 10px solid transparent;
+  border-top: 10px solid #9356DC;
+  border-bottom: 10px solid #FF79DA;
+  border-radius: 50%;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+  z-index: 1;
+  animation: loading-border 2s linear;
+}
+.loading .loading__center {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border-color: #99E2D0;
 }
 
 @keyframes gradual-appearance {
   0% {
+    transform: translateY(20px);
     opacity: 0;
   }
   100% {
+    transform: translateY(0px);
     opacity: 1;
   }
 }
@@ -398,7 +565,53 @@ a {
     transform: scaleX(0);
   }
   100% {
-    transform: scaleX(-50px);
+    transform: scaleX(1);
+  }
+}
+@keyframes heart-filled {
+  0% {
+    fill: transparent;
+    transform: scale(1);
+  }
+  30% {
+    fill: url(#myGradient);
+    transform: scale(1.1);
+    stroke-width: 20;
+  }
+  60% {
+    transform: scale(1);
+    stroke-width: 10;
+  }
+  100% {
+    fill: url(.myGradient);
+    stroke-width: 0;
+  }
+}
+@keyframes loading {
+  0% {
+    visibility: visible;
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes loading-border {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
