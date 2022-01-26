@@ -583,7 +583,7 @@ a {
     stroke-width: 10;
   }
   100% {
-    fill: url(.myGradient);
+    fill: url(#myGradient);
     stroke-width: 0;
   }
 }
