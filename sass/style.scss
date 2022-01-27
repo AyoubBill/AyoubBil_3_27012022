@@ -285,6 +285,7 @@ a {
         @media screen and (min-width: 821px) {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
     }
     .menu__heart {

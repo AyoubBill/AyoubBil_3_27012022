@@ -295,6 +295,7 @@ a {
   .menus .menu {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 .menus .menu__heart {
